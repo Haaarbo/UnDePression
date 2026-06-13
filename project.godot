@@ -15,9 +15,26 @@ config/tags=PackedStringArray("2d", "action_rpg")
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=512
+window/size/resizable=false
+
 [editor]
 
+version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "green",
+"res://Scenes/": "blue",
+"res://Scripts/": "gray",
+"res://Tests/": "pink",
+"res://addons/": "purple"
+}
 
 [input]
 
@@ -48,6 +65,7 @@ down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

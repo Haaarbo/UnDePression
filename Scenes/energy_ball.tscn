@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://b04wqs7mvyxsq"]
+
+[ext_resource type="Texture2D" uid="uid://bada6lvhc8vw5" path="res://Assets/Characters/Blu/ball_energy-export.png" id="1_r60jo"]
+
+[sub_resource type="Animation" id="Animation_q2iea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprBall:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_r60jo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprBall:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprBall:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprBall:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_a4pmj"]
+resource_name = "idle1"
+length = 0.16667001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprBall:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 5, 5, 5, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprBall:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 1, 1, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprBall:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprBall:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_r60jo"), ExtResource("1_r60jo"), ExtResource("1_r60jo"), ExtResource("1_r60jo"), ExtResource("1_r60jo")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyutt"]
+_data = {
+&"RESET": SubResource("Animation_q2iea"),
+&"idle": SubResource("Animation_a4pmj")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1bqb"]
+radius = 16.0
+
+[node name="EnergyBall" type="Area2D" unique_id=1711589207]
+
+[node name="sprBall" type="Sprite2D" parent="." unique_id=650000595]
+texture = ExtResource("1_r60jo")
+hframes = 5
+frame = 1
+
+[node name="animBall" type="AnimationPlayer" parent="." unique_id=1427858444]
+libraries/ = SubResource("AnimationLibrary_qyutt")
+autoplay = &"idle"
+speed_scale = 0.333
+
+[node name="colBall" type="CollisionShape2D" parent="." unique_id=713624386]
+shape = SubResource("CircleShape2D_p1bqb")

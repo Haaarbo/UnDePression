@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://buf585of231c1"]
 
-[ext_resource type="Texture2D" uid="uid://c1vlcx07amqbr" path="res://icon.svg" id="1_ay717"]
 [ext_resource type="Script" uid="uid://bm0yctw34ja5y" path="res://Scripts/char.gd" id="1_rjfhe"]
+[ext_resource type="Texture2D" uid="uid://cyay08rgqxy4l" path="res://Assets/Characters/blu-Sheet.png" id="2_rjfhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay717"]
-size = Vector2(112, 112)
+size = Vector2(32, 48)
 
 [node name="Char" type="CharacterBody2D" unique_id=1442810252]
 script = ExtResource("1_rjfhe")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1534764848]
-texture = ExtResource("1_ay717")
+[node name="charSpr" type="Sprite2D" parent="." unique_id=1534764848]
+texture = ExtResource("2_rjfhe")
+hframes = 6
+vframes = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927346480]
+[node name="charCol" type="CollisionShape2D" parent="." unique_id=1927346480]
 shape = SubResource("RectangleShape2D_ay717")
+
+[node name="charAni" type="AnimationPlayer" parent="." unique_id=1288027280]
