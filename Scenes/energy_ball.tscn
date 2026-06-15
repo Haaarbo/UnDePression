@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b04wqs7mvyxsq"]
 
+[ext_resource type="Script" uid="uid://chh5epkevwxxm" path="res://Scripts/energy_ball.gd" id="1_q2iea"]
 [ext_resource type="Texture2D" uid="uid://bada6lvhc8vw5" path="res://Assets/Characters/Blu/ball_energy-export.png" id="1_r60jo"]
 
 [sub_resource type="Animation" id="Animation_q2iea"]
@@ -116,6 +117,9 @@ _data = {
 radius = 16.0
 
 [node name="EnergyBall" type="Area2D" unique_id=1711589207]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_q2iea")
 
 [node name="sprBall" type="Sprite2D" parent="." unique_id=650000595]
 texture = ExtResource("1_r60jo")
@@ -129,3 +133,5 @@ speed_scale = 0.333
 
 [node name="colBall" type="CollisionShape2D" parent="." unique_id=713624386]
 shape = SubResource("CircleShape2D_p1bqb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

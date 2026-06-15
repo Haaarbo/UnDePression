@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgoi8otik7uuv"]
+
+[ext_resource type="Script" uid="uid://c1tow0g2vnnno" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://g6xjo7pd7cij" path="res://Assets/Characters/Ghosts/sadness.png" id="1_hghv2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1f0kj"]
+radius = 16.0
+height = 80.0
+
+[node name="Enemy" type="Area2D" unique_id=2091385515]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_1f0kj")
+
+[node name="sprEnemy" type="Sprite2D" parent="." unique_id=81829521]
+scale = Vector2(3, 3)
+texture = ExtResource("1_hghv2")
+hframes = 3
+
+[node name="colEnemy" type="CollisionShape2D" parent="." unique_id=387311117]
+shape = SubResource("CapsuleShape2D_1f0kj")
